@@ -1,15 +1,20 @@
-# Zerops x Yew
+# Zerops x Yew - Rust
 
-A yew example for Zerops that you can deploy in 2 steps on zerops. Deploy multi-threaded front-end web apps with WebAssembly.
+![Header Image](header.png)
 
-Features
+
+A Yew example for Zerops that you can deploy in 2 steps on zerops. Deploy multi-threaded front-end web apps with WebAssembly.
+
+**Features**
 
 - Yew
 - Trunk
 
-Navigate to the Zerops Dashboard and locate the import project button on the sidebar.
+## Instructions to Deploy on Zerops
 
-Paste the Project Yaml
+1. Navigate to the Zerops Dashboard and locate the import project button on the sidebar.
+
+2. Paste the Project Yaml
 
 ```yaml
 project:
@@ -25,3 +30,5 @@ services:
     enableSubdomainAccess: true
     minContainers: 1
 ```
+
+If you still find yourself stuck in the process join our [Discord community](https://discord.gg/5ptAqtpyvh).

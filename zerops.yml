@@ -1,0 +1,20 @@
+zerops:
+  - setup: yew
+    build:
+      base: rust@1
+      buildCommands:
+        - cargo build --verbose
+        - ls -la
+        - cargo install --locked trunk
+        - ls -la
+        - rustup target add wasm32-unknown-unknown
+        - ls -la
+        - trunk build --release
+        - ls -la
+      deploy:
+        - dist/~
+        - target
+        - Cargo.lock
+        - Cargo.toml
+    run:
+      start: trunk serve

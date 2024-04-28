@@ -1,5 +1,15 @@
 # Zerops x Yew
 
+A yew example for Zerops that you can deploy in 2 steps on zerops. Deploy multi-threaded front-end web apps with WebAssembly.
+
+Features
+
+- Yew
+- Trunk
+
+Navigate to the Zerops Dashboard and locate the import project button on the sidebar.
+
+Paste the Project Yaml
 
 ```yaml
 project:
@@ -15,5 +25,3 @@ services:
     enableSubdomainAccess: true
     minContainers: 1
 ```
- 
-

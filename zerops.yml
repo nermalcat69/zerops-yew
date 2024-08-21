@@ -1,20 +1,26 @@
 zerops:
   - setup: yew
     build:
-      base: rust@1
+      base: rust@1.78
+      prepareCommands:
+        - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        - cargo install --locked trunk
       buildCommands:
         - cargo build --verbose
-        - ls -la
         - cargo install --locked trunk
-        - ls -la
         - rustup target add wasm32-unknown-unknown
-        - ls -la
         - trunk build --release
-        - ls -la
-      deploy:
+      deployFiles:
         - dist/~
         - target
         - Cargo.lock
         - Cargo.toml
     run:
+      base: rust@1.78
+      prepareCommands:
+        - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        - cargo install --locked trunk
+      ports:
+        - port: 8080
+          httpSupport: true
       start: trunk serve

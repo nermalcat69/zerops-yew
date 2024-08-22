@@ -4,11 +4,12 @@ zerops:
       base: rust@1.78
       prepareCommands:
         - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-        - cargo install --locked trunk
-      buildCommands:
-        - cargo build --verbose
+        - export CARGO_HOME=$HOME/.cargo  # Set CARGO_HOME
+        - export PATH=$CARGO_HOME/bin:$PATH  # Add cargo to PATH
         - cargo install --locked trunk
         - rustup target add wasm32-unknown-unknown
+      buildCommands:
+        - cargo build --verbose
         - trunk build --release
       deployFiles:
         - dist/~
@@ -19,7 +20,10 @@ zerops:
       base: rust@1.78
       prepareCommands:
         - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        - export CARGO_HOME=$HOME/.cargo
+        - export PATH=$CARGO_HOME/bin:$PATH
         - cargo install --locked trunk
+        - rustup target add wasm32-unknown-unknown 
       ports:
         - port: 8080
           httpSupport: true
